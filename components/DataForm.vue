@@ -70,7 +70,7 @@
           provinceValue ? 'text-gray-900' : 'text-gray-400',
           ]"
         >
-          <option value="" disabled selected hidden>-- Pilih Provinsi --</option>
+          <option value="" disabled selected hidden>Pilih Provinsi</option>
           <option v-for="prov in provinces" :key="prov.name" :value="prov.name">
             {{ prov.name }}
           </option>
@@ -82,12 +82,13 @@
         <label class="mb-2 font-medium text-gray-700">Kota</label>
         <select
           v-model="cityValue"
+          :disabled="!provinceValue"
           :class="[
           'w-full px-4 py-3 border border-gray-300 rounded-lg',
           cityValue ? 'text-gray-900' : 'text-gray-400',
           ]"
         >
-          <option value="" disabled selected hidden>-- Pilih Kota --</option>
+          <option value="" disabled selected hidden>Pilih Kota</option>
           <option v-for="city in cities" :key="city" :value="city">
             {{ city }}
           </option>
@@ -104,7 +105,7 @@
           stateValue ? 'text-gray-900' : 'text-gray-400',
           ]"
         >
-          <option value="" disabled selected hidden>-- Pilih Negara --</option>
+          <option value="" disabled selected hidden>Pilih Negara</option>
           <option value="Indonesia">Indonesia</option>
         </select>
         <span v-if="stateError" class="text-red-500 text-sm mt-1">{{ stateError }}</span>
