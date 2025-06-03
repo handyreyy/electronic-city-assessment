@@ -6,4 +6,8 @@
 
 <script setup lang="ts">
 import LoginForm from '@/components/LoginForm.vue';
+
+definePageMeta({
+  middleware: 'redirect-if-auth'
+});
 </script>
