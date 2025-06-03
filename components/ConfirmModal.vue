@@ -12,20 +12,8 @@
         </slot>
 
         <div class="flex justify-end space-x-2 mt-4">
-          <button
-            type="button"
-            @click="cancel"
-            class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
-          >
-            Tidak
-          </button>
-          <button
-            type="button"
-            @click="confirm"
-            class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
-            Ya
-          </button>
+          <Button text="Tidak" type="button" :onClick="cancel" />
+          <Button text="Ya" type="button" :onClick="confirm" variant="primary" />
         </div>
       </div>
     </div>
@@ -33,6 +21,8 @@
 </template>
 
 <script setup lang="ts">
+import Button from '@/components/Button.vue';
+
 const { isOpen, title, message } = defineProps<{
   isOpen: boolean;
   title: string;

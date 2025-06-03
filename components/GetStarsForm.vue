@@ -45,12 +45,7 @@
         </span>
       </div>
 
-      <button
-        type="submit"
-        class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors text-lg"
-      >
-        Tampilkan Bintang
-      </button>
+      <Button class="w-full" text="Tampilkan Bintang" type="submit" variant="primary" />
 
       <div v-if="stars.length" class="mt-8 space-y-3">
         <div
@@ -84,6 +79,7 @@ import { useForm, useField } from 'vee-validate';
 import { getStarsSchema } from '@/schemas/getStarsSchema';
 import BackButton from '@/components/BackButton.vue';
 import ConfirmModal from '@/components/ConfirmModal.vue';
+import Button from '@/components/Button.vue';
 
 const { handleSubmit } = useForm({
   validationSchema: getStarsSchema,

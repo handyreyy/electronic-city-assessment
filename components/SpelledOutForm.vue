@@ -26,12 +26,8 @@
           {{ amountErrorMessage }}
         </span>
       </div>
-      <button
-        type="submit"
-        class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors text-lg"
-      >
-        Spelled Out
-      </button>
+
+      <Button class="w-full" text="Spelled Out" type="submit" variant="primary" />
 
       <div v-if="spelledOutResult" class="mt-8 text-lg text-gray-800">
         Terbilang: {{ spelledOutResult }}
@@ -57,6 +53,7 @@ import { capitalizeWords } from '@/utils/capitalizeWords';
 import { formatRupiah } from '@/utils/formatRupiah';
 import BackButton from '@/components/BackButton.vue';
 import ConfirmModal from '@/components/ConfirmModal.vue';
+import Button from '@/components/Button.vue';
 
 const { handleSubmit } = useForm({
   validationSchema: getSpelledOutSchema,

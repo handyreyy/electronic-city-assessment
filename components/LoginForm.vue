@@ -30,12 +30,8 @@
       </span>
     </div>
 
-    <button
-      type="submit"
-      class="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700"
-    >
-      Login
-    </button>
+    <Button class="w-full" text="Login" type="submit" variant="primary" />
+
   </form>
 </template>
 
@@ -43,6 +39,7 @@
 import { useField, useForm } from 'vee-validate';
 import { loginSchema } from '@/schemas/loginSchema';
 import { useRouter } from 'vue-router';
+import Button from '@/components/Button.vue';
 
 const router = useRouter();
 

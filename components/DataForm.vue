@@ -125,12 +125,7 @@
         </div>
       </div>
 
-      <button
-        type="submit"
-        class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors text-lg"
-      >
-        Simpan
-      </button>
+      <Button class="w-full" text="Simpan" type="submit" variant="primary" />
 
       <ConfirmModal
         :isOpen="showModal"
@@ -168,6 +163,7 @@ import { todayString } from '@/utils/date';
 import BackButton from '@/components/BackButton.vue';
 import ConfirmModal from '@/components/ConfirmModal.vue';
 import Snackbar from '@/components/Snackbar.vue';
+import Button from '@/components/Button.vue';
 
 const { handleSubmit, resetForm } = useForm({
   validationSchema: formDataSchema,
