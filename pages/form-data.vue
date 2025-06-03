@@ -1,3 +1,7 @@
 <template>
-  <h1>Form Data</h1>
+  <DataForm />
 </template>
+
+<script setup lang="ts">
+import DataForm from '@/components/DataForm.vue';
+</script>
