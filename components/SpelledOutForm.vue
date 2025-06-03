@@ -1,8 +1,5 @@
 <template>
   <div class="relative min-h-screen bg-gray-100 flex items-center justify-center p-4">
-    <div class="fixed top-4 left-4">
-      <BackButton />
-    </div>
 
     <form
       @submit.prevent="onSubmit"
@@ -33,14 +30,14 @@
         Terbilang: {{ spelledOutResult }}
       </div>
 
-      <ConfirmModal
-        :isOpen="showModal"
-        :title="modalTitle"
-        :message="modalMessage"
-        @confirm="confirmSpelledOut"
-        @cancel="cancelSpelledOut"
-      />
     </form>
+    <ConfirmModal
+      :isOpen="showModal"
+      :title="modalTitle"
+      :message="modalMessage"
+      @confirm="confirmSpelledOut"
+      @cancel="cancelSpelledOut"
+    />
   </div>
 </template>
 
@@ -51,7 +48,6 @@ import { getSpelledOutSchema } from '@/schemas/spelledOutSchema';
 import { numberToWords } from '@/utils/numberToWords';
 import { capitalizeWords } from '@/utils/capitalizeWords';
 import { formatRupiah } from '@/utils/formatRupiah';
-import BackButton from '@/components/BackButton.vue';
 import ConfirmModal from '@/components/ConfirmModal.vue';
 import Button from '@/components/Button.vue';
 

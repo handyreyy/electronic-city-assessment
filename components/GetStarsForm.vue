@@ -1,8 +1,5 @@
 <template>
   <div class="relative min-h-screen bg-gray-100 flex items-center justify-center p-4 w-full">
-    <div class="fixed top-4 left-4">
-      <BackButton />
-    </div>
 
     <form
       @submit.prevent="onSubmit"
@@ -62,14 +59,16 @@
         </div>
       </div>
 
-      <ConfirmModal
-        :isOpen="showModal"
-        :title="modalTitle"
-        :message="modalMessage"
-        @confirm="confirmStars"
-        @cancel="cancelStars"
-      />
     </form>
+
+    <ConfirmModal
+      :isOpen="showModal"
+      :title="modalTitle"
+      :message="modalMessage"
+      @confirm="confirmStars"
+      @cancel="cancelStars"
+    />
+
   </div>
 </template>
 
@@ -77,7 +76,6 @@
 import { ref } from 'vue';
 import { useForm, useField } from 'vee-validate';
 import { getStarsSchema } from '@/schemas/getStarsSchema';
-import BackButton from '@/components/BackButton.vue';
 import ConfirmModal from '@/components/ConfirmModal.vue';
 import Button from '@/components/Button.vue';
 

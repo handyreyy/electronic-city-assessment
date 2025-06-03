@@ -1,8 +1,5 @@
 <template>
-  <div class="relative min-h-screen bg-gray-100 flex items-center justify-center p-4">
-    <div class="fixed top-4 left-4">
-      <BackButton />
-    </div>
+  <div class="relative min-h-screen bg-gray-100 flex items-center justify-center px-4 py-16">
 
     <form
       @submit.prevent="onSubmit"
@@ -127,30 +124,31 @@
 
       <Button class="w-full" text="Simpan" type="submit" variant="primary" />
 
-      <ConfirmModal
-        :isOpen="showModal"
-        title="Konfirmasi Data"
-        @confirm="confirmSave"
-        @cancel="cancelSave"
-      >
-        <ul class="space-y-2 list-disc list-inside text-left">
-          <li><strong>Nama:</strong> {{ nameValue }}</li>
-          <li v-if="birthdateValue"><strong>Tanggal Lahir:</strong> {{ birthdateValue }}</li>
-          <li><strong>Phone:</strong> {{ phoneValue }}</li>
-          <li><strong>Alamat:</strong> {{ addressValue }}</li>
-          <li><strong>Provinsi:</strong> {{ provinceValue }}</li>
-          <li><strong>Kota:</strong> {{ cityValue }}</li>
-          <li><strong>Negara:</strong> {{ stateValue }}</li>
-          <li v-if="photoValue">
-            <strong>Foto:</strong>
-            <img :src="previewUrl" alt="Preview" class="w-16 h-16 object-cover rounded mt-2" />
-          </li>
-        </ul>
-      </ConfirmModal>
-
-      <Snackbar :message="snackbarMessage" :visible="showSnackbar" />
-
     </form>
+
+    <ConfirmModal
+      :isOpen="showModal"
+      title="Konfirmasi Data"
+      @confirm="confirmSave"
+      @cancel="cancelSave"
+    >
+      <ul class="space-y-2 list-disc list-inside text-left">
+        <li><strong>Nama:</strong> {{ nameValue }}</li>
+        <li v-if="birthdateValue"><strong>Tanggal Lahir:</strong> {{ birthdateValue }}</li>
+        <li><strong>Phone:</strong> {{ phoneValue }}</li>
+        <li><strong>Alamat:</strong> {{ addressValue }}</li>
+        <li><strong>Provinsi:</strong> {{ provinceValue }}</li>
+        <li><strong>Kota:</strong> {{ cityValue }}</li>
+        <li><strong>Negara:</strong> {{ stateValue }}</li>
+        <li v-if="photoValue">
+          <strong>Foto:</strong>
+          <img :src="previewUrl" alt="Preview" class="w-16 h-16 object-cover rounded mt-2" />
+        </li>
+      </ul>
+    </ConfirmModal>
+
+    <Snackbar :message="snackbarMessage" :visible="showSnackbar" />
+
   </div>
 </template>
 
@@ -160,7 +158,6 @@ import { useForm, useField } from 'vee-validate';
 import { formDataSchema } from '@/schemas/formDataSchema';
 import { provinces } from '@/stores/provinces';
 import { todayString } from '@/utils/date';
-import BackButton from '@/components/BackButton.vue';
 import ConfirmModal from '@/components/ConfirmModal.vue';
 import Snackbar from '@/components/Snackbar.vue';
 import Button from '@/components/Button.vue';
@@ -193,6 +190,7 @@ const confirmationMessage = ref('');
 const showSnackbar = ref(false);
 const snackbarMessage = ref('');
 const fileInput = ref<HTMLInputElement | null>(null);
+const previewUrl = ref<string | null>(null);
 
 function onProvinceChange() {
   const selectedProvince = provinces.find(p => p.name === provinceValue.value);
@@ -210,9 +208,6 @@ function onPhoneInput(event: Event) {
   phoneInput.value = input;
   phoneValue.value = `+62${input}`;
 }
-
-
-const previewUrl = ref<string | null>(null);
 
 function onFileChange(event: Event) {
   const file = (event.target as HTMLInputElement).files?.[0] || null;
