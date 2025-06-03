@@ -1,3 +1,7 @@
 <template>
-  <h1>Spelled Out</h1>
+  <SpelledOutForm />
 </template>
+
+<script setup lang="ts">
+import SpelledOutForm from '@/components/SpelledOutForm.vue';
+</script>

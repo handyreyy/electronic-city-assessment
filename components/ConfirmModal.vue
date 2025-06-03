@@ -1,8 +1,9 @@
 <template>
-  <Transition name="fade">
+  <Transition name="fade" appear>
     <div
-      v-if="isOpen"
-      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+      v-show="isOpen"
+      :key="isOpen"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 transition-opacity duration-300"
     >
       <div class="bg-white p-6 rounded shadow-lg max-w-sm w-full space-y-4">
         <h2 class="text-xl font-bold">{{ title }}</h2>
