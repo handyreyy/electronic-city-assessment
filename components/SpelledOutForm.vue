@@ -32,8 +32,9 @@
       >
         Spelled Out
       </button>
+
       <div v-if="spelledOutResult" class="mt-8 text-lg text-gray-800">
-        {{ spelledOutResult }}
+        Terbilang: {{ spelledOutResult }}
       </div>
 
       <ConfirmModal

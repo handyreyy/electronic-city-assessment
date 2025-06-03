@@ -2,7 +2,6 @@
   <form @submit.prevent="onSubmit" class="max-w-md w-full bg-white p-8 rounded shadow-md space-y-6">
     <h1 class="text-2xl font-bold text-center mb-6">Login</h1>
 
-    <!-- Email -->
     <div class="flex flex-col">
       <label for="email" class="mb-1 font-medium">Email</label>
       <input
@@ -17,7 +16,6 @@
       </span>
     </div>
 
-    <!-- Password -->
     <div class="flex flex-col">
       <label for="password" class="mb-1 font-medium">Password</label>
       <input
@@ -32,7 +30,6 @@
       </span>
     </div>
 
-    <!-- Button -->
     <button
       type="submit"
       class="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700"
@@ -57,7 +54,8 @@ const { value: emailValue, errorMessage: emailErrorMessage } = useField('email')
 const { value: passwordValue, errorMessage: passwordErrorMessage } = useField('password');
 
 const onSubmit = handleSubmit((values) => {
-  console.log('Form submitted:', values);
+  // console.log('Form submitted:', values);
+  localStorage.setItem('isLoggedIn', 'true');
   router.push('/menu');
 });
 </script>

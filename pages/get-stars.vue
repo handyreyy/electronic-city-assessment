@@ -6,4 +6,8 @@
 
 <script setup lang="ts">
 import GetStarsForm from '@/components/GetStarsForm.vue';
+
+definePageMeta({
+  middleware: 'auth'
+});
 </script>
